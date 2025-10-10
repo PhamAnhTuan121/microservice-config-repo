@@ -1,0 +1,26 @@
+server:
+port: 8080 # Cổng của API Gateway
+
+spring:
+  application:
+    name: api-gateway # 👈 nên để chữ thường cho nhất quán
+
+  cloud:
+    gateway:
+      server: # Khóa mới: Thêm 'server'
+        webflux:
+          routes:
+            - id: product-service
+              uri: lb://product-service  # 👈 phải trùng tên với spring.application.name trong Product Service
+              predicates:
+                - Path=/api/products/**
+
+            - id: order-service
+              uri: lb://order-service
+              predicates:
+                - Path=/api/orders/**
+
+            - id: account-service
+              uri: lb://account-service
+              predicates:
+                - Path=/api/accounts/**
