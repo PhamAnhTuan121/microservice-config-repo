@@ -17,8 +17,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,prometheus
+        include: [ "prometheus" ]
   endpoint:
+    health:
+      show-details: always
     prometheus:
       enabled: true
   metrics:
