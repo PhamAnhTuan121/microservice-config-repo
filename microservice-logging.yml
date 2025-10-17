@@ -1,0 +1,6 @@
+logging:
+  level:
+    root: INFO
+  logstash:
+    enabled: true
+    destination: logstash:5044

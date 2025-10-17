@@ -1,5 +1,5 @@
 server:
-port: 8082
+  port: 8082
 
 spring:
   application:
@@ -12,6 +12,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import: "microservice-logging.yml"
 
 management:
   endpoints:

@@ -2,6 +2,8 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: account-service
   datasource:
     url: jdbc:mysql://localhost:3306/account_db
     username: root
@@ -10,6 +12,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import: "microservice-logging.yml"
 
 management:
   endpoints:
